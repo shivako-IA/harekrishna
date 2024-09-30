@@ -1,66 +1,83 @@
 /* Estilos generales del cuerpo */
 body {
-   background-color: #e8eaf6; /* Fondo morado muy sutil */
-   font-family: 'Arial', sans-serif; /* Fuente fuerte y clara para el cuerpo del texto */
-   color: #000000; /* Texto negro fuerte */
+   background: linear-gradient(135deg, rgba(74, 20, 140, 0.2), rgba(233, 30, 99, 0.1)), url('img/krishna.jpg');
+   background-size: contain; /* Ajusta la imagen para que se vea completa sin cubrir todo el fondo */
+   background-position: center center; /* Centra la imagen en el fondo */
+   background-repeat: no-repeat; /* Evita que la imagen se repita */
+   font-family: Arial, sans-serif;
+   color: #000;
    margin: 0;
    padding: 0;
-   background: linear-gradient(135deg, rgba(74,20,140,0.2), rgba(233,30,99,0.1)); /* Efecto difuminado */
+   height: 100vh; /* Ocupa toda la altura de la pantalla */
+   display: flex;
+   flex-direction: column; /* Organiza el contenido en una columna */
+   justify-content: space-between; /* Distribuye el espacio entre los elementos */
+   align-items: center; /* Centra los elementos horizontalmente */
+   overflow: hidden; /* Evita el desbordamiento */
+   background-color: #000; /* Fondo negro en áreas sin imagen */
+}
+
+/* Contenedor para los bordes negro y dorado */
+.border-wrapper {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   border: 10px solid #ffd700; /* Borde dorado */
+   box-sizing: border-box;
+   background: #000; /* Fondo negro */
+   z-index: -1; /* Coloca el contenedor detrás del contenido */
 }
 
 /* Estilo para el header */
 header {
-   background: linear-gradient(to bottom, rgba(74,20,140,0.9), rgba(74,20,140,0.5)); /* Fondo morado que se difumina */
-   color: #ffffff; /* Texto blanco dentro del header */
-   padding: 33px;
+   background: rgba(16, 6, 29, 0.199); /* Fondo morado semitransparente */
+   color: #fff;
+   padding: 10px;
+   width: 100%;
    text-align: center;
-   position: relative; /* Para posicionar el texto dentro del header */
-   overflow: hidden; /* Para manejar el desbordamiento de los efectos */
+   box-sizing: border-box; /* Incluye el padding en el ancho total */
+   position: absolute; /* Coloca el header en una posición absoluta */
+   top: 0; /* Ubica el header en la parte superior */
+   left: 0;
+   z-index: 1; /* Asegura que el header esté por encima del contenedor de borde */
 }
 
 /* Estilo para el texto "OM HARE KRISHNA" dentro del header */
 .om-hare-krishna {
-   font-family: 'Cinzel Decorative', serif; /* Fuente épica y elegante */
+   font-family: 'Cinzel Decorative', serif;
    font-size: 2.5em;
-   color: #3a0654; /* Color vibrante para destacar el texto */
-   text-align: center;
+   color: #88ff00;
+   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
    margin: 0;
-   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para darle más presencia */
-   position: absolute; /* Para posicionar el texto en la parte superior del header */
-   top: 10px; /* Ajusta la distancia desde el borde superior del header */
-   left: 50%;
-   transform: translateX(-50%); /* Centra el texto horizontalmente */
 }
 
-/* Estilo para el encabezado principal */
-h2 {
-   font-family: 'Great Vibes', cursive; /* Fuente cursiva elegante */
-   color: #00796b; /* Verde esmeralda */
-   text-align: center;
-   margin: 30px 0;
+/* Contenedor de los libros en la esquina inferior */
+.books-row {
+   display: flex;
+   flex-direction: column; /* Organiza los libros en una columna */
+   align-items: center; /* Centra los libros horizontalmente */
+   position: absolute; /* Coloca el contenedor en una posición absoluta */
+   bottom: 0; /* Ubica el contenedor en la parte inferior */
+   left: 0; /* Alinea el contenedor a la izquierda */
+   margin: 20px;
+   z-index: 10; /* Asegura que los libros estén por encima del contenedor de borde */
 }
 
 /* Estilos del contenedor del libro */
 .book-container {
-   position: absolute; /* Para colocar el libro en la esquina */
-   bottom: 20px; /* Espacio desde el borde inferior */
-   left: 33px; /* Espacio desde el borde izquierdo */
    display: flex;
    flex-direction: column;
    align-items: center;
-   z-index: 10; /* Asegura que el libro esté encima de otros elementos */
-}
-
-/* Estilo del enlace del libro */
-.book-link {
-   text-decoration: none; /* Quita el subrayado del enlace */
 }
 
 /* Estilo del libro */
 .book {
-   width: 100px; /* Tamaño más pequeño del libro */
-   height: 130px; /* Tamaño más pequeño del libro */
-   perspective: 800px; /* Perspectiva para el efecto de 3D */
+   width: 70px;
+   height: 110px;
+   perspective: 700px;
+   margin: 7px 0; /* Espacio entre los libros */
 }
 
 /* Estilo de la portada del libro */
@@ -68,28 +85,40 @@ h2 {
    width: 100%;
    height: 100%;
    background: #dcdcdc;
-   border: 2px solid #333;
-   border-radius: 10px;
-   position: relative;
-   cursor: pointer;
+   border: 2px solid #333; /* Borde negro */
+   border-radius: 8px;
    text-align: center;
-   padding: 10px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-   transition: transform 0.6s;
+   padding: 8px;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+   transition: transform 0.3s;
+   border: 2px solid #ffd700; /* Borde dorado */
 }
 
 .cover:hover {
-   transform: rotateY(-15deg);
+   transform: rotateY(-10deg); /* Efecto hover */
+}
+
+.cover h2, .cover p {
+   margin: 0;
+   font-size: 0.8em;
 }
 
 .cover h2 {
-   font-family: 'Great Vibes', cursive;
    color: #00796b;
-   font-size: 1.2em; /* Tamaño más pequeño para el libro */
 }
 
 .cover p {
-   font-family: 'Arial', sans-serif;
    color: #333;
-   font-size: 0.8em; /* Tamaño más pequeño para el libro */
+}
+
+/* Estilo para el texto en la parte inferior */
+.footer-text {
+   font-family: 'Great Vibes', cursive;
+   font-size: 1.5em;
+   color: #fcf0f0;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+   position: absolute;
+   bottom: 20px; /* Ubica el texto en la parte inferior */
+   margin: 0;
+   z-index: 1; /* Asegura que el texto esté por encima del contenedor de borde */
 }
